@@ -122,9 +122,13 @@ APPNAME ="Qtum"
 APP_LOAD_PARAMS += --path "44'/88'" --path "0'/45342'" --path "20698'/3053'/12648430'"
 else ifeq ($(COIN),hcash)
 DEFINES   += BTCHIP_P2PKH_VERSION=40 BTCHIP_P2SH_VERSION=100 BTCHIP_COIN_FAMILY=2 BTCHIP_COINID=\"HShare\" COINID_UPCASE=\"HCASH\" COLOR_HDR=0x57448D COLOR_DB=0xABA2C6 COINID_NAME=\"HCash\" COINID=$(COIN) BTCHIP_COINID_SHORT=\"HCASH\" COIN_HCASH HAVE_PEERCOIN_SUPPORT
+else ifeq ($(COIN),argentum)
+DEFINES   += BTCHIP_P2PKH_VERSION=23 BTCHIP_P2SH_VERSION=5 BTCHIP_COIN_FAMILY=1 BTCHIP_COINID=\"Argentum\" COINID_UPCASE=\"ARGENTUM\" COLOR_HDR=0x2864AE COLOR_DB=0x94B2D7 COINID_NAME=\"Argentum\" COINID=$(COIN) BTCHIP_COINID_SHORT=\"ARG\" COIN_ARGENTUM
+APPNAME ="Argentum"
+APP_LOAD_PARAMS += --path $(APP_PATH)
 else
 ifeq ($(filter clean,$(MAKECMDGOALS)),)
-$(error Unsupported COIN - use bitcoin_testnet, bitcoin, bitcoin_cash, bitcoin_gold, litecoin, dogecoin, dash, zcash, komodo, stratis, peercoin, posw, pivx, viacoin, vertcoin, stealthcoin, digibyte, qtum, hcash) 
+$(error Unsupported COIN - use bitcoin_testnet, bitcoin, bitcoin_cash, bitcoin_gold, litecoin, dogecoin, dash, zcash, komodo, stratis, peercoin, posw, pivx, viacoin, vertcoin, stealthcoin, digibyte, qtum, hcash, argentum) 
 endif
 endif
 
